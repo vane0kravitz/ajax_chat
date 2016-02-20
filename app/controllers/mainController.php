@@ -7,18 +7,20 @@
 
 namespace app\controllers;
 
-use \app\models\Comment;
-
+use \app\models\Comment,
+    \vendor\project_core\View;
 
 class mainController
 {
 
     public function index() {
-        echo 'site root';
+        $view = new View();
+        echo $view->render('main', array('title' => 'home'));
     }
 
-    public function article() {
-        echo 'article';
+    public function docs() {
+        $view = new View();
+        echo $view->render('docs', array('title' => 'docs'));
     }
 
     public function test() {
