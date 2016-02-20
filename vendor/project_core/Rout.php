@@ -4,7 +4,7 @@
  * Date: 19.02.16
  * Time: 19:20
  */
-
+// action inspection needed
 namespace vendor\project_core;
 
 
@@ -26,8 +26,9 @@ class Rout
             $action = 'index';
         }
 
-        if(isset($smallController)){
-            $controller = 'app\\controllers\\' . $smallController . 'Controller';
+        $controller = 'app\\controllers\\' . $smallController . 'Controller';
+        $file = '../app/controllers/' . $smallController . 'Controller.php';
+        if(isset($smallController) && is_file($file)){
             $controller_obj = new $controller();
             $controller_obj->$action();
         }else{

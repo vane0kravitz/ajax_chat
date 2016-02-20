@@ -10,5 +10,13 @@ namespace vendor\project_core;
 
 class mongodb
 {
+    public $dbname = "ajaxcomments";
+    public $collection;
 
+    public function connect($collection) {
+        $mongo = new \MongoClient();
+        $dbname = $this->dbname;
+        $db = $mongo->$dbname;
+        $this->collection = $db->$collection;
+    }
 }

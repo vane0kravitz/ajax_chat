@@ -7,8 +7,34 @@
 
 namespace app\controllers;
 
+use \app\models\Comment,
+    \app\models\User,
+    \app\models\Client;
+
 
 class crud
 {
+    private function getInfo() {
 
+    }
+
+    public function create() {
+
+    }
+
+    public function read() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function rateIt() {
+
+    }
+
+    public function delete() {
+
+    }
 }

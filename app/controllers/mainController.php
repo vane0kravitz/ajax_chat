@@ -7,10 +7,11 @@
 
 namespace app\controllers;
 
+use \app\models\Comment;
+
 
 class mainController
 {
-    public $test = 'test!';
 
     public function index() {
         echo 'site root';
@@ -19,4 +20,12 @@ class mainController
     public function article() {
         echo 'article';
     }
+
+    public function test() {
+        $comment = new Comment();
+        if($comment->update()) {
+            echo 'good job!';
+        }
+    }
+
 }
