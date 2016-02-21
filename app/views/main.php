@@ -7,6 +7,12 @@
 
 namespace app\views;
 
+if(isset($_POST) && !empty($_POST['data'])) {
+    var_dump(json_decode($_POST['data']));
+
+    die();
+}
+
 ?>
 
 
@@ -43,25 +49,21 @@ namespace app\views;
         <!-- content body -->
         <section id="shout">
             <p><?= $title ?></p>
-            <p>very simple html css</p>
         </section>
         <!-- main content -->
         <div id="homepage">
             <section id="latest">
                 <article>
                     <figure>
-                        <ul>
-                            <li>comment 1</li>
-                            <li>comment 2</li>
-                            <li>comment 3</li>
+                        <ul class="results">
+                            <!-- append -->
                         </ul>
-
                         <div class="form-block">
-                            <form>
-                                <input type="text" name="field1" placeholder="First Name" />
-                                <input type="text" name="field2" placeholder="Last Name" />
-                                <textarea name="field3" placeholder="Type your Comment"></textarea>
-                                <input type="submit" value="Send" />
+                            <form id="commentForm">
+                                <input type="text" name="fname" id="fname" placeholder="First Name" />
+                                <input type="text" name="lname" id="lname" placeholder="Last Name" />
+                                <textarea name="comment" id="comment" placeholder="Type your Comment"></textarea>
+                                <input type="button" id="send-button" value="Send" />
                             </form>
                         </div>
                     </figure>
@@ -79,7 +81,11 @@ namespace app\views;
     </footer>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    var userip;
+</script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="../../web/js/main.js"></script>
 </body>
 </html>
