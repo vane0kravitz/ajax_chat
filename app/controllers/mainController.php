@@ -8,8 +8,7 @@
 namespace app\controllers;
 
 use \app\models\Comment,
-    \vendor\project_core\View,
-    \vendor\project_core\Services;
+    \vendor\project_core\View;
 
 class mainController
 {

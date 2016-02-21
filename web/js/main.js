@@ -16,20 +16,16 @@ $(document).ready(function(){
             },
             success: function(jsondata){
                 $('.results').append(
-                    '<li>First Name = ' +
+                    '<li> ' +
                     jsondata.fname +
-                    ', Last Name = ' +
+                    ' ' +
                     jsondata.lname +
-                    ', Comment = ' +
-                    jsondata.comment +
-                    ', User ip = ' +
-                    jsondata.ip +
-                    jsondata.realip + '</li>'
+                    '<br>' +
+                    jsondata.comment + '</li>'
                 );
                 $('#fname').val(null);
                 $('#lname').val(null);
                 $('#comment').val(null);
-                console.log('First Name = ' + jsondata.fname + ', Last Name = ' + jsondata.lname + ', Comment = ' + jsondata.comment + ', User ip = ' + userip);
             }
         });
     });

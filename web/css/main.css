@@ -230,7 +230,10 @@ input, textarea, select{
     list-style:none;
 }
 #container #homepage #latest article figure ul li{
-    margin-bottom:10px;
+    padding:10px;
+    margin-bottom:5px;
+    background: aliceblue;
+    border-radius: 5px;
 }
 
 #container #homepage #services figure{
@@ -264,6 +267,7 @@ footer p{
     max-width: 400px;
     padding: 15px;
     background: #F7F7F7;
+    border-radius: 5px;
 }
 .form-block h1{
     background: #43D1AF;
@@ -290,8 +294,10 @@ footer p{
     -moz-box-sizing: border-box;
     width: 100%;
     background: #fff;
-    border: 1px solid #ccc;
+    border: 0px;
+    border-radius: 3px;
     padding: 1%;
+    margin-bottom: 5px;
     color: #555;
 }
 .form-block input[type="text"]:focus,
@@ -305,9 +311,9 @@ footer p{
 .form-block textarea:focus,
 .form-block select:focus
 {
-    box-shadow: 0 0 5px #68DA53;;
+    box-shadow: 0 0 5px #68DA53;
     padding: 1%;
-    border: 1px solid #68DA53;;
+    border: 0px;
 }
 
 .form-block input[type="submit"],
@@ -317,14 +323,17 @@ footer p{
     -moz-box-sizing: border-box;
     width: 100%;
     padding: 2%;
-    background: #68DA53;;
-    border-bottom: 2px solid  #71C75F;;
+    background: #93CC8A;
+    border-bottom: 2px solid #63B152;
     border-top-style: none;
     border-right-style: none;
     border-left-style: none;
+    border-radius: 5px;
     color: #fff;
 }
 .form-block input[type="submit"]:hover,
 .form-block input[type="button"]:hover{
-    background: #51A73F;;
+    background: #51A73F;
+    border-bottom: 2px solid #447739;
+    border-radius: 5px;
 }
