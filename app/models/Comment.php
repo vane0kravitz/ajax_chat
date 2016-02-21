@@ -7,21 +7,22 @@
 
 namespace app\models;
 
-use \vendor\project_core\Mongodb;
+use \vendor\project_core\Mongodb,
+    \app\models\User,
+    \app\models\Client;
 
 class Comment extends Mongodb
 {
-    public function insert(array $args = []) {
-
-    }
 
     public function read(array $args = []) {
         $this->connect('comment');
         $collection = $this->collection;
 
-        $id = '56c8815870e560b7308b456e';
-        $results = $collection->findOne(array('_id' => new \MongoId($id)));
+        $client = new Client();
+        $clientId = $client->findOrCreate(['domain' => $args['domain']]);
+        $results = $collection->find(['clientId' => $clientId]);
         print_r($results);
+        return $results;
     }
 
     public function create(array $args = []) {
