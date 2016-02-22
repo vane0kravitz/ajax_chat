@@ -35,10 +35,10 @@ class User extends Mongodb
     }
 
     public function getName($userId) {
-        $this->connect('comment');
+        $this->connect('user');
         $collection = $this->collection;
 
-        $results = $collection->findOne(['_id' => $userId]);
+        $results = $collection->findOne(['_id' => new \MongoId($userId)]);
         return $results['fname'].' '.$results['lname'];
     }
 }

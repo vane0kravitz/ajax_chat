@@ -52,6 +52,7 @@ class crudController
 
     public function read() {
         $comment = new Comment();
+        $user = new User();
 
         //get all comments, foreach array and send all comment in json
         if ($this->is_ajax()) {
@@ -59,7 +60,21 @@ class crudController
                 $res = $comment->read([
                     'domain' => $_POST['domain']
                 ]);
-                echo json_encode($res);
+                $val = array();
+                $buf = [];
+                $i = 0;
+                foreach ( $res as $value ) {
+                    $name = $user->getName($value['userId']->{'$id'});
+                    $buf[$i]['id'] = $value['_id']->{'$id'};
+                    $buf[$i]['comment'] = $value['comment'];
+                    $buf[$i]['name'] = $name;
+                    $i++;
+                    //$buf = array_merge($buf, $val);
+                    //exit;
+                }
+//                print_r($buf);
+                echo json_encode($buf, JSON_FORCE_OBJECT);
+//                var_dump($buf);
             }
         }
 

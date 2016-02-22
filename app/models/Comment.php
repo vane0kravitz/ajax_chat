@@ -20,8 +20,7 @@ class Comment extends Mongodb
 
         $client = new Client();
         $clientId = $client->findOrCreate(['domain' => $args['domain']]);
-        $results = $collection->find(['clientId' => $clientId]);
-        print_r($results);
+        $results = iterator_to_array($collection->find(['clientId' => new \MongoId($clientId)]));
         return $results;
     }
 
