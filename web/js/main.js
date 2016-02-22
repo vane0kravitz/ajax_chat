@@ -14,12 +14,8 @@ $(document).ready(function(){
         success: function(jsondata){
             var arr = JSON.stringify(jsondata);
             for(var k in jsondata) {
-                $('.results').append(
-                    '<li key=' + JSON.stringify(jsondata[k].id) + '>' +
-                    JSON.stringify(jsondata[k].name).replace("\"", "").replace("\"", "") +
-                    '<br>' +
-                    JSON.stringify(jsondata[k].comment).replace("\"", "").replace("\"", "") + '</li>'
-                );
+                console.log(JSON.stringify(jsondata[k]));
+                $('.results').append(_.template($('#template-message').html())(JSON.stringify(jsondata[k])));
             }
         }
     });
