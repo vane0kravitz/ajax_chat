@@ -15,10 +15,10 @@ $(document).ready(function(){
             var arr = JSON.stringify(jsondata);
             for(var k in jsondata) {
                 $('.results').append(
-                    '<li key=\"' + JSON.stringify(jsondata[k].id) + '\"> ' +
-                    JSON.stringify(jsondata[k].name) +
+                    '<li key=' + JSON.stringify(jsondata[k].id) + '>' +
+                    JSON.stringify(jsondata[k].name).replace("\"", "").replace("\"", "") +
                     '<br>' +
-                    JSON.stringify(jsondata[k].comment) + '</li>'
+                    JSON.stringify(jsondata[k].comment).replace("\"", "").replace("\"", "") + '</li>'
                 );
             }
         }
