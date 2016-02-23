@@ -35,14 +35,17 @@ class Comment extends Mongodb
                 'clientId' => $args['clientId'],
                 'userId' => $args['userId'],
                 'comment' => $args['comment'],
-                'rating' => '',
-                'votedCount' => ''
+                'rating' => 0,
+                'votedCount' => 0
             ],
             [
                 "w" => 1 // insert success?
             ]
         );
-        return true;
+        $findId = iterator_to_array($collection->find(['comment' => $args['comment'], 'userId' => new \MongoId($args['userId'])]));
+        $findId = array_shift($findId);
+        $findId = array_shift($findId)->{'$id'};
+        return $findId;
     }
 
     public function update(array $args = []) {
@@ -51,7 +54,7 @@ class Comment extends Mongodb
 
         $collection->update(
             [
-                '_id' => new \MongoId($args['_id']),
+                '_id' => new \MongoId($args['id']),
             ],
             [
                 '$set' => [
@@ -60,6 +63,8 @@ class Comment extends Mongodb
                 ]
             ]
         );
+       // var_dump($args['id']);
+        return true;
     }
 
     public function rateIt(array $args = []) {
@@ -68,7 +73,7 @@ class Comment extends Mongodb
 
         $collection->update(
             [
-                '_id' => new \MongoId($args['_id']),
+                '_id' => new \MongoId($args['commentId']),
             ],
             [
                 '$set' => [

@@ -34,6 +34,63 @@ class User extends Mongodb
         }
     }
 
+    public function find(array $args = []) {
+        $this->connect('user');
+        $collection = $this->collection;
+
+        $results = $collection->findOne(['realIp' => $args['realIp']]);
+        if($results) {
+            return $results['_id']->{'$id'};
+        }
+    }
+
+    public function access(array $args = []) {
+        $this->connect('comment');
+        $collection = $this->collection;
+
+        $results = $collection->findOne(['_id' => new \MongoId($args['commentId'])]);
+        if($results['userId'] == $args['userId']) {
+            // var_dump($args['userId']);
+            return true;
+        }
+    }
+
+    public function accessRate(array $args = []) {  //userId commentId rating
+        $this->connect('rating');
+        $collection = $this->collection;
+
+        $results = $collection->findOne([
+            'userId' => new \MongoId($args['userId']),
+            'commentId' => new \MongoId($args['commentId']),
+        ]);
+        if (!$results) {
+            $collection->insert(
+                [
+                    'createdAt' => new \MongoDate(),
+                    'updatedAt' => new \MongoDate(),
+                    'userId' => new \MongoId($args['userId']),
+                    'comentId' => new \MongoId($args['commentId']),
+                    'rating' => $args['rating'],
+                ]
+            );
+
+            $this->connect('comment');
+            $collection = $this->collection;
+            $collection->update(
+                [
+                    '_id' => new \MongoId($args['commentId']),
+                ],
+                [
+                    '$inc' => [
+                        'votedCount' => +1,
+                        'rating' => +$args['rating']
+                    ]
+                ]
+            );
+            return true;
+        }
+    }
+
     public function getName($userId) {
         $this->connect('user');
         $collection = $this->collection;

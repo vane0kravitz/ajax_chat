@@ -43,18 +43,38 @@ namespace app\views;
         <!-- content body -->
         <section id="shout">
             <p><?= $title ?></p>
-            <p>very simple html css</p>
         </section>
         <!-- main content -->
         <div id="homepage">
             <section id="latest">
                 <article>
                     <figure>
-                        <ul>
-                            <li>first</li>
-                            <li>second</li>
-                            <li>thirt</li>
-                        </ul>
+                        <h3>1) Add to you html:</h3>
+                        <br>
+                        <math>
+                            <![CDATA[
+                                <iframe src="http://javascript.info">
+                                    <ul class="results">
+                                        <!-- append -->
+                                    </ul>
+                                </iframe>
+                            ]]> 
+                        </math>
+                    </figure>
+                    <hr>
+                    <figure>
+                        <h3>2) Add to you js lists:</h3>
+                        <br>
+                        <math>
+                            <![CDATA[
+                                <script type="text/javascript">
+                                    var userip;
+                                </script>
+                                <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+                                <script src="http://ajaxcomments/web/js/main.js"></script>
+                            ]]> 
+                        </math>
                     </figure>
                 </article>
             </section>

@@ -49,6 +49,7 @@ if(isset($_POST) && !empty($_POST['data'])) {
         <!-- content body -->
         <section id="shout">
             <p><?= $title ?></p>
+            <p>Like disqus? Just type!</p>
         </section>
         <!-- main content -->
         <div id="homepage">
@@ -80,16 +81,6 @@ if(isset($_POST) && !empty($_POST['data'])) {
         <p>vane0kravitz</p>
     </footer>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
-<script type="text/html" id="template-message">
-    <li key=<%= \"id\" %>>
-        <%= \"name\" %>
-        <br>
-        <%= \"comment\" %>
-    </li>
-
-</script>
 
 <script type="text/javascript">
     var userip;
