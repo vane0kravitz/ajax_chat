@@ -1,6 +1,6 @@
 # Ajax Chat
 
-This project is builded just for studying, and fully worked.
+This project is built just for studying, and fully worked.
 Main task was create MVC architecture and learn how that 
 is working. Used clear core technologies without any frameworks or libs. 
 
